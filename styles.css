@@ -1,0 +1,224 @@
+/* ---------- Variables ---------- */
+:root {
+  --marino: #0a1a30;
+  --marino-2: #14294a;
+  --tarjeta: #eaf0f6;
+  --papel: #f5f7fa;
+  --texto: #2b3040;
+  --suave: #5f6578;
+  --acento: #1f4e8c;
+  --fuente: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: var(--fuente);
+  font-size: 1.1rem;
+  line-height: 1.65;
+  color: var(--texto);
+  background: var(--papel);
+}
+
+hr { display: none; }
+img { max-width: 100%; height: auto; display: block; }
+a { color: var(--acento); text-underline-offset: 3px; }
+a:focus-visible { outline: 3px solid var(--acento); outline-offset: 3px; }
+
+h1, h2, h3 { color: var(--marino); line-height: 1.2; margin: 0 0 .7rem; }
+p { margin: 0 0 1rem; }
+
+/* ---------- Encabezado ---------- */
+body > header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--marino);
+  color: #fff;
+  padding: .9rem clamp(1rem, 3vw, 1.5rem);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: .4rem 2rem;
+}
+
+body > header h1 { color: #fff; font-size: 1.5rem; margin: 0; }
+
+body > header h2 {
+  flex-basis: 100%;
+  order: 3;
+  margin: 0;
+  font-size: .95rem;
+  font-weight: 400;
+  color: #b8c4d8;
+}
+
+nav { display: flex; flex-wrap: wrap; gap: .25rem 1.25rem; }
+nav a { color: #b8c4d8; text-decoration: none; padding: .2rem 0; }
+nav a:hover, nav a[aria-current="page"] { color: #fff; }
+
+/* ---------- Banner con título encima ---------- */
+.hero {
+  position: relative;
+  width: calc(100% - 2rem);
+  max-width: 1600px;
+  margin: 1.25rem auto 0;
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--marino-2);
+}
+
+.hero img {
+  width: 100%;
+  height: clamp(280px, 42vw, 480px);
+  object-fit: cover;
+}
+
+.hero-texto {
+  position: absolute;
+  left: 50%;
+  bottom: 1.5rem;
+  transform: translateX(-50%);
+  width: calc(100% - 2rem);
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  background: rgba(45, 45, 50, .6);
+  backdrop-filter: blur(3px);
+  text-align: center;
+  color: #fff;
+}
+
+.hero-texto h1 { color: #fff; font-size: clamp(2.2rem, 6vw, 3.4rem); margin: 0; }
+.hero-texto p { margin: .3rem 0 0; font-size: 1.25rem; }
+
+/* ---------- Contenido ---------- */
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1rem 3rem;
+}
+
+section h2 { font-size: 1.9rem; }
+
+.descripcion { margin-bottom: 1.5rem; }
+
+/* Tarjetas (sitios, precios, estadía) */
+.card {
+  background: var(--tarjeta);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+}
+
+.card h2 { font-size: 1.3rem; margin-bottom: 1rem; }
+.card ul { margin: 0; padding-left: 1.4rem; }
+.card li { margin-bottom: .2rem; }
+
+.info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.precios li:last-child { font-weight: 600; list-style: none; margin-left: -1.1rem; }
+.precios li:last-child::before { content: "• "; font-weight: 400; }
+.tokio .precios li:last-child { font-weight: 400; }
+.nota { margin: 1rem 0 0; font-size: .9rem; color: var(--suave); }
+
+/* Estadía */
+.estadia { text-align: center; margin-bottom: 2rem; }
+.estadia h2 { margin-bottom: .4rem; }
+.estadia .dias { font-size: 1.6rem; font-weight: 600; color: var(--marino); margin: 0; }
+.estadia .detalle { margin: .6rem auto 0; max-width: 620px; color: var(--suave); }
+
+/* Video */
+.video h2 { margin-bottom: .6rem; }
+
+.video-wrap {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 1rem 0;
+}
+
+.video-wrap iframe, .video-wrap video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.video-enlace { font-size: .95rem; }
+
+.volver { margin-top: 2rem; }
+
+/* ---------- Inicio ---------- */
+.intro h2 { font-size: clamp(2rem, 5vw, 2.8rem); }
+#destinos { margin-top: 2.5rem; font-size: 1.9rem; }
+
+.destinos {
+  list-style: none;
+  padding: 0;
+  margin: 1.25rem 0 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.destinos li {
+  background: var(--tarjeta);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.destinos h3 { margin: 0; padding: 1rem 1.25rem; font-size: 1.5rem; }
+.destinos h3 a { color: var(--marino); text-decoration: none; }
+.destinos h3 a:hover { color: var(--acento); }
+.destinos li > a { display: block; margin-top: auto; }
+.destinos img { width: 100%; height: 240px; object-fit: cover; }
+
+/* ---------- Nosotros ---------- */
+main > h1 { font-size: clamp(2.2rem, 6vw, 3.2rem); }
+
+.equipo {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin: 1.25rem 0 2rem;
+}
+
+.integrante { background: var(--tarjeta); border-radius: 12px; overflow: hidden; }
+
+.integrante img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: center 25%;
+}
+
+.integrante h3 { margin: 1rem 1.25rem .15rem; font-size: 1.3rem; }
+.integrante p { margin: 0 1.25rem 1.1rem; color: var(--suave); }
+
+/* ---------- Pie ---------- */
+footer {
+  background: var(--marino);
+  color: #b8c4d8;
+  text-align: center;
+  padding: 1.5rem 1rem;
+  font-size: .95rem;
+}
+footer p { margin: 0; }
+
+/* ---------- Móvil ---------- */
+@media (max-width: 700px) {
+  .info, .destinos, .equipo { grid-template-columns: 1fr; }
+  body { font-size: 1rem; }
+  .hero-texto { bottom: .75rem; padding: .75rem 1rem; }
+}

@@ -1,0 +1,3 @@
+Carpeta para los videos del sitio.
+Si tienes archivos de video propios (.mp4), guárdalos aquí, por ejemplo: videos/petra.mp4
+Los videos de YouTube no se pueden guardar aquí: en cada página se muestran incrustados desde YouTube.
